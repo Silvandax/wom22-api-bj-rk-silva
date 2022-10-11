@@ -1,9 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Service = require("../models/service")
-const Cabin = require("../models/cabin")
 const authToken = require("../middleware/authToken");
-const { find, findOne } = require('../models/cabin');
 
 router.get('/',authToken, async (req, res)=>{
     try{
@@ -13,6 +11,19 @@ router.get('/',authToken, async (req, res)=>{
         res.status(500).send({msg: error.message})
     }
 });
+// error duplicate key ??????
+router.post('/', authToken, async (req, res) => {
+    try{
+        const service = new Service({
+            service: req.body.service,
+            createdBy: req.authUser.sub
+        });
+        const newService = await service.save();
+        res.send(service);
+    } catch(error){
+        res.status(500).send({msg: error.message});
+    }
+})
 
 router.get('/:id',authToken, async (req,res) =>{
     try {
@@ -26,55 +37,22 @@ router.get('/:id',authToken, async (req,res) =>{
             res.status(500).send({msg: error.message})
         }
 })
-
-router.post('/',authToken, async (req, res) => {
+ // uppdateras inte 
+router.patch('/:id', authToken, async (req, res) => {
     try{
-        const cabin = await Cabin.findOne({cabin: req.body.cabin})
-        if(!cabin){
-            return res.send({msg:'No such cabin'})
-        }
-        const service = await Service.findOne({cabin: req.body.cabin,
-             startDate: req.body.startDate})
-        if(cabin){
-            return res.send({msg:'Cabin already booked'})
-        }
-        const service1 = await Service.findOne({cabin: req.body.cabin,
-            endDate: req.body.endDate})
-       if(cabin){
-           return res.send({msg:'Cabin already booked'})
-       }
-
-    }catch(error){
-        res.status(500).send({msg: error.message});
-    }
-    try{
-        const service = new Service({
-            cabin: req.body.cabin,
-            startDate: req.body.startDate,
-            endDate: req.body.endDate,
-            createdBy: req.authUser.sub
-        });
-        const newService= await service.save();
-        res.send(service);
-    } catch(error){
-        res.status(500).send({msg: error.message});
-    }
-
-
-})
-
-router.patch('/:id',authToken, async (req, res)=>{
-    try{
-        const updatedService = await Service.findOneAndUpdate(
+        const service = await Service.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},
-            {cabin: req.body.cabin,
-            startDate: req.body.startDate,
-            endDate: req.body.endDate},
-            {new: true}
+            {   cabin: req.body.cabin,
+                seviceType: req.body.seviceType,
+                serviceTime: req.body.serviceTime},
+            {new: true}   
         )
-        res.send({msg:'Service updated', updatedService: updatedService})
-    } catch (error){
-        return res.status(500).send({msg: error.message})
+        if(!service){
+            return res.status(404).send({msg: "No such service"})
+        }
+        res.send({msg: "Updated service", service})
+    }catch(error){
+        res.status(500).send({ msg: error.message })
     }
 })
 

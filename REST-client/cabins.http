@@ -1,0 +1,35 @@
+@baseURL = http://localhost:3030
+//Hämtar alla stugor
+GET {{baseURL}}/cabins
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
+
+###
+GET {{baseURL}}/cabins/6332e38894e1c264b12b9853
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYmRkNDU3Y2E1MjcyYWZlZDk0MGMiLCJlbWFpbCI6ImpvYWFuLmRvZUBhcmNhZGEuZmkiLCJpYXQiOjE2NjQyNzczMTAsImV4cCI6MTY2NDM2MzcxMH0.lofFgklHMUucDMotO_Bzn8q8NQLZpOCAo56qYDK1a-U
+
+###
+//Gör en ny stuga av john 2e8
+POST {{baseURL}}/cabins
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
+Content-Type: application/json
+
+{
+    "cabin": "Stugan4",
+    "size": "Stor",
+    "address": "Välkommenvägen 334 A, 88210 Utsjoki",
+    "rent": 1000
+}
+
+###
+//Ta bort en stuga
+DELETE {{baseURL}}/cabins/6332e37894e1c264b12b9850
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
+
+###
+PATCH {{baseURL}}/cabins/6332e37894e1c264b12b9850
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
+Content-Type: application/json
+
+{
+    "rent": 300
+}

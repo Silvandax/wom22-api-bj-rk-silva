@@ -1,0 +1,30 @@
+@baseURL = http://localhost:3030
+
+
+//hämta alla tjänster
+GET {{baseURL}}/services
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
+
+###
+//skapa en ny tjänst
+POST {{baseURL}}/services
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyZGNhZDYxZTJkNjRjNjgwNTRiNDIiLCJlbWFpbCI6Impvb2Fhbi5kb2VAYXJjYWRhLmZpIiwiaWF0IjoxNjY1NDg0NTUwLCJleHAiOjE2NjU1NzA5NTB9.803HatnXgXFQyQTM60nyXkic7xnhWsVgS5PZTwhcGx8
+
+{
+    "service": "Städning"
+}
+
+###
+//Ta bort en tjänst
+DELETE {{baseURL}}/services/63454b44ca56207f6470e168
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyZGNhZDYxZTJkNjRjNjgwNTRiNDIiLCJlbWFpbCI6Impvb2Fhbi5kb2VAYXJjYWRhLmZpIiwiaWF0IjoxNjY1NDg0NTUwLCJleHAiOjE2NjU1NzA5NTB9.803HatnXgXFQyQTM60nyXkic7xnhWsVgS5PZTwhcGx8
+
+### ändra tjänst
+PATCH {{baseURL}}/services/63454b44ca56207f6470e168
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyZGNhZDYxZTJkNjRjNjgwNTRiNDIiLCJlbWFpbCI6Impvb2Fhbi5kb2VAYXJjYWRhLmZpIiwiaWF0IjoxNjY1NDg0NTUwLCJleHAiOjE2NjU1NzA5NTB9.803HatnXgXFQyQTM60nyXkic7xnhWsVgS5PZTwhcGx8
+
+{
+    "service": "Städsdfsdfning1"
+}

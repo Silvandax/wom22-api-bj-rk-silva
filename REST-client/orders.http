@@ -1,0 +1,38 @@
+@baseURL = http://localhost:3030
+
+
+//hämta alla beställning
+GET {{baseURL}}/orders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
+
+###
+
+//hämta en beställning
+GET {{baseURL}}/orders/634543d2154f32a0f5a3b7b4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
+###
+
+//Gör en ny beställning
+POST {{baseURL}}/orders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
+
+{
+    "cabin": "Stugun44",
+    "seviceType": "städning",
+    "serviceTime": "2022-12-03"
+}
+
+###
+//Ta bort en beställning
+DELETE {{baseURL}}/orders/634546ce02633cfb387cce40
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyZGNhZDYxZTJkNjRjNjgwNTRiNDIiLCJlbWFpbCI6Impvb2Fhbi5kb2VAYXJjYWRhLmZpIiwiaWF0IjoxNjY1NDg0NTUwLCJleHAiOjE2NjU1NzA5NTB9.803HatnXgXFQyQTM60nyXkic7xnhWsVgS5PZTwhcGx8
+
+### ändra beställning
+PATCH {{baseURL}}/orders/6345467d02633cfb387cce38
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzM0MWU4YjBiMDVlYWUxNjc0ODQ5NDAiLCJlbWFpbCI6ImpvaGFuLmRvZUBhcmNhZGEuZmkiLCJpYXQiOjE2NjQzNjUyNDAsImV4cCI6MTY2NDQ1MTY0MH0.RaFChByPWwZPOFUoaN3dU726xjEDTvCKpt0bBhaeu1I
+
+{
+    "cabin": "Stugun55"
+}
