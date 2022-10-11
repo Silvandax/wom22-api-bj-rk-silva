@@ -37,14 +37,12 @@ router.get('/:id',authToken, async (req,res) =>{
             res.status(500).send({msg: error.message})
         }
 })
- // uppdateras inte 
+
 router.patch('/:id', authToken, async (req, res) => {
     try{
         const service = await Service.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},
-            {   cabin: req.body.cabin,
-                seviceType: req.body.seviceType,
-                serviceTime: req.body.serviceTime},
+            {service: req.body.service},
             {new: true}   
         )
         if(!service){

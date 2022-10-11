@@ -13,6 +13,26 @@ router.get('/',authToken, async (req, res)=>{
 });
 //kolla service finns, kolla cabin finns, kolla att det inte finns en identisk bokning
 router.post('/', authToken, async (req, res) => {
+    /*try{
+        const cabin = await Cabin.findOne({cabin: req.body.cabin})
+        if(!cabin){
+            return res.send({msg:'No such cabin'})
+        }
+        const booking = await Booking.findOne({cabin: req.body.cabin,
+             startDate: req.body.startDate})
+        if(cabin){
+            return res.send({msg:'Cabin already booked'})
+        }
+        const booking1 = await Booking.findOne({cabin: req.body.cabin,
+            endDate: req.body.endDate})
+       if(cabin){
+           return res.send({msg:'Cabin already booked'})
+       }
+
+    }catch(error){
+        res.status(500).send({msg: error.message});
+    }*/
+
     try{
         const order = new Order({
             cabin: req.body.cabin,
@@ -20,15 +40,11 @@ router.post('/', authToken, async (req, res) => {
             serviceTime: req.body.serviceTime,
             createdBy: req.authUser.sub
         });
-
         const newOrder = await order.save();
-
         res.send(order);
     } catch(error){
         res.status(500).send({msg: error.message});
     }
-
-
 })
 
 router.get('/:id',authToken, async (req,res) =>{
