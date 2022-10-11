@@ -19,9 +19,6 @@ const servicesRouter = require('./routes/services');
 // för att ta emot json
 app.use(express.json());
 
-// Testa att detta funkar, ersätt sedan med egen kod
-app.get('/', (req, res) => res.json("Det funkar!"));
-
 app.use('/cabins', cabinsRouter);
 app.use('/orders', ordersRouter);
 app.use('/services', servicesRouter);

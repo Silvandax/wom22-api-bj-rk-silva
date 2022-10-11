@@ -1,7 +1,7 @@
 @baseURL = http://localhost:3030
 //Hämtar alla stugor
 GET {{baseURL}}/cabins
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
 
 ###
 GET {{baseURL}}/cabins/6332e38894e1c264b12b9853
