@@ -7,16 +7,15 @@ const https = require("https")
 
 router.get('/',authToken, async (req, res)=>{
     try{
-        const orders = await Order.find();
+        const orders = await Order.find()
         res.send(orders)
     }catch(error){
         res.status(500).send({msg: error.message})
     }
-});
+})
 
-//kolla service finns, kolla att det inte finns en identisk bokning
+//kolla service finns,
 router.post('/:id', authToken, async (req, res) => {
-    let cabin
     const path = '/cabins/' + req.params.id
     console.log(path)
     const jwt = req.headers['authorization']
@@ -29,18 +28,17 @@ router.post('/:id', authToken, async (req, res) => {
         headers:{
             Authorization: `${jwt}`
    }
-};
+}
 https.get(options,(rese) => {
     let body = ""
 
     rese.on("data", (chunk) => {
         body += chunk
-    });
+    })
 
     rese.on("end", () => {
         try {
              let json = JSON.parse(body)
-             cabin = json
             console.log(json)
         } catch (error) {
             console.error(error.message)
@@ -54,15 +52,14 @@ https.get(options,(rese) => {
     try{
         const order = new Order({
             cabinId: req.params.id,
-            cabin: "Stugfan",
             seviceType: req.body.seviceType,
             serviceTime: req.body.serviceTime,
             createdBy: req.authUser.sub
-        });
-        const newOrder = await order.save();
-        res.send(order);
+        })
+        const newOrder = await order.save()
+        res.send(order)
     } catch(error){
-        res.status(500).send({msg: error.message});
+        res.status(500).send({msg: error.message})
     }
 })
 
@@ -105,7 +102,7 @@ router.delete('/:id', authToken, async (req, res) => {
             _id: req.params.id,
             createdBy: req.authUser.sub})
         if(!order){
-            return res.status(404).send({msg: "order not found"});
+            return res.status(404).send({msg: "order not found"})
         }
         return res.send(order)
         }

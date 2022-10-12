@@ -5,8 +5,8 @@ const router = express.Router()
 //const Cabin = 'https://schoolproject2.azurewebsites.net/cabins'
 
 router.get('/', authToken, async (req, res) => {
-    const jwt = req.headers['authorization'];
-    let url = "schoolproject2.azurewebsites.net";
+    const jwt = req.headers['authorization']
+    let url = "schoolproject2.azurewebsites.net"
     var options = {
         hostname: url,
         port: 443,
@@ -15,13 +15,13 @@ router.get('/', authToken, async (req, res) => {
         headers:{
             Authorization: `${jwt}`
    }
-};
+}
 https.get(options,(rese) => {
     let body = ""
 
     rese.on("data", (chunk) => {
         body += chunk
-    });
+    })
 
     rese.on("end", () => {
         try {
@@ -30,13 +30,13 @@ https.get(options,(rese) => {
             console.log(json)
         } catch (error) {
             console.error(error.message)
-        };
-    });
+        }
+    })
 
 }).on("error", (error) => {
-    console.error(error.message);
-});
+    console.error(error.message)
+})
 
 })
 
-module.exports = router;
+module.exports = router

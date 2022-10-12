@@ -1,27 +1,27 @@
 const express = require('express')
 const router = express.Router()
 const Service = require("../models/service")
-const authToken = require("../middleware/authToken");
+const authToken = require("../middleware/authToken")
 
 router.get('/',authToken, async (req, res)=>{
     try{
-        const services = await Service.find();
-        res.send(services);
+        const services = await Service.find()
+        res.send(services)
     }catch(error){
         res.status(500).send({msg: error.message})
     }
-});
+})
 // error duplicate key ??????
 router.post('/', authToken, async (req, res) => {
     try{
         const service = new Service({
             service: req.body.service,
             createdBy: req.authUser.sub
-        });
-        const newService = await service.save();
-        res.send(service);
+        })
+        const newService = await service.save()
+        res.send(service)
     } catch(error){
-        res.status(500).send({msg: error.message});
+        res.status(500).send({msg: error.message})
     }
 })
 
@@ -60,7 +60,7 @@ router.delete('/:id', authToken, async (req, res) => {
             _id: req.params.id,
             createdBy: req.authUser.sub})
         if(!service){
-            return res.status(404).send({msg: "service not found"});
+            return res.status(404).send({msg: "service not found"})
         }
         return res.send(service)
         }

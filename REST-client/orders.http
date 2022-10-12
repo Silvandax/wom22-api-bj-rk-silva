@@ -7,7 +7,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwN
 ###
 
 //hämta en beställning
-GET {{baseURL}}/orders/63454d538d382715cfa4ac66
+GET {{baseURL}}/orders/634546ce02633cfb387cce3e
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
 ###
 
