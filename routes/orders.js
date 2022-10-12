@@ -1,41 +1,60 @@
 const express = require('express')
 const router = express.Router()
 const Order = require("../models/order")
-const authToken = require("../middleware/authToken");
+const Service = require("../models/service")
+const authToken = require("../middleware/authToken")
+const https = require("https")
 
 router.get('/',authToken, async (req, res)=>{
     try{
         const orders = await Order.find();
-        res.send(orders);
+        res.send(orders)
     }catch(error){
         res.status(500).send({msg: error.message})
     }
 });
-//kolla service finns, kolla cabin finns, kolla att det inte finns en identisk bokning
-router.post('/', authToken, async (req, res) => {
-    /*try{
-        const cabin = await Cabin.findOne({cabin: req.body.cabin})
-        if(!cabin){
-            return res.send({msg:'No such cabin'})
-        }
-        const booking = await Booking.findOne({cabin: req.body.cabin,
-             startDate: req.body.startDate})
-        if(cabin){
-            return res.send({msg:'Cabin already booked'})
-        }
-        const booking1 = await Booking.findOne({cabin: req.body.cabin,
-            endDate: req.body.endDate})
-       if(cabin){
-           return res.send({msg:'Cabin already booked'})
-       }
 
-    }catch(error){
-        res.status(500).send({msg: error.message});
-    }*/
+//kolla service finns, kolla att det inte finns en identisk bokning
+router.post('/:id', authToken, async (req, res) => {
+    let cabin
+    const path = '/cabins/' + req.params.id
+    console.log(path)
+    const jwt = req.headers['authorization']
+    let url = "schoolproject2.azurewebsites.net"
+    var options = {
+        hostname: url,
+        port: 443,
+        path: `${path}`,
+        method: 'GET',
+        headers:{
+            Authorization: `${jwt}`
+   }
+};
+https.get(options,(rese) => {
+    let body = ""
+
+    rese.on("data", (chunk) => {
+        body += chunk
+    });
+
+    rese.on("end", () => {
+        try {
+             let json = JSON.parse(body)
+             cabin = json
+            console.log(json)
+        } catch (error) {
+            console.error(error.message)
+        }
+    })
+
+}).on("error", (error) => {
+    console.error(error.message)
+})
 
     try{
         const order = new Order({
-            cabin: req.body.cabin,
+            cabinId: req.params.id,
+            cabin: "Stugfan",
             seviceType: req.body.seviceType,
             serviceTime: req.body.serviceTime,
             createdBy: req.authUser.sub
@@ -53,6 +72,7 @@ router.get('/:id',authToken, async (req,res) =>{
         if(!order) {
             return res.status(404).send({msg: "order not found"})
         }
+
         res.send(order)
         }
         catch(error){
@@ -64,7 +84,7 @@ router.patch('/:id', authToken, async (req, res) => {
     try{
         const order = await Order.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},
-            {   cabin: req.body.cabin,
+            {   cabinId: req.body.cabinId,
                 seviceType: req.body.seviceType,
                 serviceTime: req.body.serviceTime},
             {new: true}   

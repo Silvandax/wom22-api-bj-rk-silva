@@ -1,0 +1,18 @@
+@baseURL = https://schoolproject2.azurewebsites.net
+### Login
+POST {{baseURL}}/users/login
+Content-Type: application/json
+
+{
+    "email": "john.doe@arcada.fi",
+    "password": "Password123"
+}
+
+### Skapa ny användare
+POST {{baseURL}}/users
+Content-Type: application/json
+
+{
+    "email": "john.doe@arcada.fi",
+    "password": "Password123"
+}

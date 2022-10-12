@@ -8,7 +8,7 @@ const serviceSchema = new mongoose.Schema({
     },
     createdBy: {
         type: String,
-        required: true,
+        required: true
     }
 }, {timestamps: true})
 

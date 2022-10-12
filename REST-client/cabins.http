@@ -1,35 +1,8 @@
 @baseURL = http://localhost:3030
-//Hämtar alla stugor
+//Hämtar alla ägda stugor
 GET {{baseURL}}/cabins
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTQ4MzU0MywiZXhwIjoxNjY1NTY5OTQzfQ.DLSU8uqHn-Fbh-0SsyOg0gMkvR_TqS8HSfwKDX35cq4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
 
 ###
-GET {{baseURL}}/cabins/6332e38894e1c264b12b9853
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYmRkNDU3Y2E1MjcyYWZlZDk0MGMiLCJlbWFpbCI6ImpvYWFuLmRvZUBhcmNhZGEuZmkiLCJpYXQiOjE2NjQyNzczMTAsImV4cCI6MTY2NDM2MzcxMH0.lofFgklHMUucDMotO_Bzn8q8NQLZpOCAo56qYDK1a-U
-
-###
-//Gör en ny stuga av john 2e8
-POST {{baseURL}}/cabins
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
-Content-Type: application/json
-
-{
-    "cabin": "Stugan4",
-    "size": "Stor",
-    "address": "Välkommenvägen 334 A, 88210 Utsjoki",
-    "rent": 1000
-}
-
-###
-//Ta bort en stuga
-DELETE {{baseURL}}/cabins/6332e37894e1c264b12b9850
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
-
-###
-PATCH {{baseURL}}/cabins/6332e37894e1c264b12b9850
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NDM2Mzk5MiwiZXhwIjoxNjY0NDUwMzkyfQ.v5GHWnKNQl-ilW2ZsNem3PmJmGY8Ae-UZYUkt3l-eaI
-Content-Type: application/json
-
-{
-    "rent": 300
-}
+GET {{baseURL}}/cabins/63451d5218c4af7d46f72601
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s

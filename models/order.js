@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
+        cabinId:{
+            type: String,
+            required: true
+        },
         cabin:{
             type: String,
             required: true
