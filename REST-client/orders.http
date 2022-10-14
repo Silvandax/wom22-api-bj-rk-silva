@@ -3,7 +3,8 @@
 
 //hämta alla beställning
 GET {{baseURL}}/orders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
+
 ###
 
 //hämta en beställning
@@ -14,11 +15,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwN
 //Gör en ny beställning
 POST {{baseURL}}/orders/63451d5218c4af7d46f72601
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
 
 {
-    
-    "seviceType": "asdfasdgasdg",
+    "serviceType": "Städning",
     "serviceTime": "2022-12-03"
 }
 

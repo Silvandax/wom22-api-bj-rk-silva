@@ -16,8 +16,19 @@ router.get('/',authToken, async (req, res)=>{
 
 //kolla service finns,
 router.post('/:id', authToken, async (req, res) => {
+
+    try{
+        const service = await Service.findOne({serviceType: req.body.serviceType})
+        console.log(req.body.serviceType)
+        if(!service){
+            return res.send({msg:'No such service'})
+        }
+
+
+    }catch(error){
+        res.status(500).send({msg: error.message})
+    }
     const path = '/cabins/' + req.params.id
-    console.log(path)
     const jwt = req.headers['authorization']
     let url = "schoolproject2.azurewebsites.net"
     var options = {
@@ -39,7 +50,6 @@ https.get(options,(rese) => {
     rese.on("end", () => {
         try {
              let json = JSON.parse(body)
-            console.log(json)
         } catch (error) {
             console.error(error.message)
         }
@@ -52,7 +62,7 @@ https.get(options,(rese) => {
     try{
         const order = new Order({
             cabinId: req.params.id,
-            seviceType: req.body.seviceType,
+            serviceType: req.body.serviceType,
             serviceTime: req.body.serviceTime,
             createdBy: req.authUser.sub
         })
@@ -82,7 +92,7 @@ router.patch('/:id', authToken, async (req, res) => {
         const order = await Order.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},
             {   cabinId: req.body.cabinId,
-                seviceType: req.body.seviceType,
+                serviceType: req.body.serviceType,
                 serviceTime: req.body.serviceTime},
             {new: true}   
         )
@@ -111,4 +121,4 @@ router.delete('/:id', authToken, async (req, res) => {
         }
 })
 
-module.exports = router
+module.exports = router 

@@ -6,7 +6,7 @@ const orderSchema = new mongoose.Schema({
             required: true,
             unique: true
         },
-        seviceType:{
+        serviceType:{
             type: String,
             required: true
         },

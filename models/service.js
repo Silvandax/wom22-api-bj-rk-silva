@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const serviceSchema = new mongoose.Schema({
-    service: {
+    serviceType: {
         type: String,
         required: true,
         unique: true

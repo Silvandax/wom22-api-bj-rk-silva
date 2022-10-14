@@ -15,7 +15,7 @@ router.get('/',authToken, async (req, res)=>{
 router.post('/', authToken, async (req, res) => {
     try{
         const service = new Service({
-            service: req.body.service,
+            serviceType: req.body.serviceType,
             createdBy: req.authUser.sub
         })
         const newService = await service.save()
@@ -42,7 +42,7 @@ router.patch('/:id', authToken, async (req, res) => {
     try{
         const service = await Service.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},
-            {service: req.body.service},
+            {serviceType: req.body.serviceType},
             {new: true}   
         )
         if(!service){
