@@ -14,16 +14,20 @@ router.get('/',authToken, async (req, res)=>{
     }
 })
 
-//kolla service finns,
+//stop identisk order
 router.post('/:id', authToken, async (req, res) => {
-
     try{
         const service = await Service.findOne({serviceType: req.body.serviceType})
-        console.log(req.body.serviceType)
         if(!service){
             return res.send({msg:'No such service'})
         }
 
+        const order = await Order.findOne({cabinId: req.params.id,
+            serviceType: req.body.serviceType,
+            serviceTime: req.body.serviceTime})
+       if(order){
+           return res.send({msg:'Cabin already booked'})
+       }
 
     }catch(error){
         res.status(500).send({msg: error.message})
@@ -88,6 +92,14 @@ router.get('/:id',authToken, async (req,res) =>{
 })
 
 router.patch('/:id', authToken, async (req, res) => {
+    try{
+        const service = await Service.findOne({serviceType: req.body.serviceType})
+        if(!service){
+            return res.send({msg:'No such service'})
+        }
+    }catch(error){
+        res.status(500).send({msg: error.message})
+    }
     try{
         const order = await Order.findOneAndUpdate(
             {_id: req.params.id, createdBy: req.authUser.sub},

@@ -11,8 +11,17 @@ router.get('/',authToken, async (req, res)=>{
         res.status(500).send({msg: error.message})
     }
 })
-// error duplicate key ??????
 router.post('/', authToken, async (req, res) => {
+    try{
+        const service = await Service.findOne({serviceType: req.body.serviceType})
+        console.log(req.body.serviceType)
+        if(service){
+            return res.send({msg:'service already exists'})
+        }
+
+    }catch(error){
+        res.status(500).send({msg: error.message})
+    }
     try{
         const service = new Service({
             serviceType: req.body.serviceType,

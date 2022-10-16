@@ -3,29 +3,29 @@
 
 //hämta alla tjänster
 GET {{baseURL}}/services
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 ###
 //skapa en ny tjänst
 POST {{baseURL}}/services
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 {
-    "serviceType": "Städning"
+    "serviceType": "Sotning"
 }
 
 ###
 //Ta bort en tjänst
-DELETE {{baseURL}}/services/6346a1a0fe4841b1f37b0be8
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+DELETE {{baseURL}}/services/634bc3987f74d1cf019d42f8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 
 ### ändra tjänst
-PATCH {{baseURL}}/services/6346a200b78d2ae1b1b35b1e
+PATCH {{baseURL}}/services/634bc4fdbc53cc3003b7cc93
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 {
-    "service": "Städsdfsdfning1"
+    "serviceType": "SSotning"
 }

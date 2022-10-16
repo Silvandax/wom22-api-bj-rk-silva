@@ -3,8 +3,7 @@ const mongoose = require('mongoose')
 const orderSchema = new mongoose.Schema({
         cabinId:{
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         serviceType:{
             type: String,

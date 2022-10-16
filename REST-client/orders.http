@@ -3,37 +3,37 @@
 
 //hämta alla beställning
 GET {{baseURL}}/orders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 ###
 
 //hämta en beställning
-GET {{baseURL}}/orders/634546ce02633cfb387cce3e
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+GET {{baseURL}}/orders/634bd3d82ddb528631faf0c0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
+
 ###
 
 //Gör en ny beställning
-POST {{baseURL}}/orders/63451d5218c4af7d46f72601
+POST {{baseURL}}/orders/63451deec985621bf525fb61
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTc0Mjk5MCwiZXhwIjoxNjY1ODI5MzkwfQ.SBSQE4ZRl5AN6TnbVKBQXMQs9DSaobGsJE5zRuYG9aE
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 {
-    "serviceType": "Städning",
+    "serviceType": "SSotning",
     "serviceTime": "2022-12-03"
 }
 
 ###
 //Ta bort en beställning
-DELETE {{baseURL}}/orders/63454d538d382715cfa4ac66
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+DELETE {{baseURL}}/orders/634bd753c7fcb92a98edcbba
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 ### ändra beställning
-PATCH {{baseURL}}/orders/63469e95972f7b15d19728d7
+PATCH {{baseURL}}/orders/634bd3da2ddb528631faf0c3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTU3MDI5NCwiZXhwIjoxNjY1NjU2Njk0fQ.nBgWokTSr6cinFQ1hQFRWJ-uVj-5Aav0Vga7A-n8v1s
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MzMyYWUwNzkyNWYzODI1NTdlYTAyZTgiLCJlbWFpbCI6ImpvaG4uZG9lQGFyY2FkYS5maSIsImlhdCI6MTY2NTkwOTUyMiwiZXhwIjoxNjY1OTk1OTIyfQ.kCj7METq6BEoOhIKXRLbIDAPy20gYfIhiLA60tY7H0g
 
 {
-    "cabin": "Stusdfsdf",
-    "seviceType": "asdfsdf",
+    "serviceType": "Gräsklippning",
     "serviceTime": "2222-12-03"
 }
